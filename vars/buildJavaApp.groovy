@@ -1,9 +1,7 @@
 def call() {
-    echo "Building Java App using Maven"
+    echo "Building Java App using Maven (Shared Lib)"
 
-    sh """
-        mvn clean package -DskipTests
-    """
+    def mvnHome = tool 'maven-354'
 
-    echo "Build finished"
+    sh "${mvnHome}/bin/mvn clean package -DskipTests"
 }
