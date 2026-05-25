@@ -1,12 +1,5 @@
-def call(String imageName, String tag) {
+def call() {
+    echo "Building Docker Image"
 
-    def fullImage = "${imageName}:${tag}"
-
-    echo "Building Docker image: ${fullImage}"
-
-    sh """
-        docker build -t ${fullImage} .
-    """
-
-    echo "Docker build done"
+    sh "docker build -t java-app:v1 ."
 }
